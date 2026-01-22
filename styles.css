@@ -663,7 +663,7 @@ body {
     display: block;
 }
 
-/* Hide non-active language list items */
+/* Hide non-active language list items - default Serbian */
 .why-list li.en,
 .why-list li.de {
     display: none;
@@ -671,6 +671,26 @@ body {
 
 .why-list li.sr {
     display: block;
+}
+
+/* Show English list items when English is selected */
+#lang-en:checked ~ section .why-list li.sr,
+#lang-en:checked ~ section .why-list li.de {
+    display: none !important;
+}
+
+#lang-en:checked ~ section .why-list li.en {
+    display: block !important;
+}
+
+/* Show German list items when German is selected */
+#lang-de:checked ~ section .why-list li.sr,
+#lang-de:checked ~ section .why-list li.en {
+    display: none !important;
+}
+
+#lang-de:checked ~ section .why-list li.de {
+    display: block !important;
 }
 
 .why-list li::before {
@@ -736,6 +756,35 @@ body {
     color: var(--light-gray);
     font-size: 15px;
     margin-bottom: 8px;
+}
+
+/* Working hours - all lines as blocks with equal spacing */
+.working-hours p.sr {
+    display: block !important;
+}
+
+.working-hours p.en {
+    display: none;
+}
+
+.working-hours p.de {
+    display: none;
+}
+
+#lang-en:checked ~ section .working-hours p.sr {
+    display: none !important;
+}
+
+#lang-en:checked ~ section .working-hours p.en {
+    display: block !important;
+}
+
+#lang-de:checked ~ section .working-hours p.sr {
+    display: none !important;
+}
+
+#lang-de:checked ~ section .working-hours p.de {
+    display: block !important;
 }
 
 .map-container {
@@ -964,6 +1013,10 @@ body {
     
     .hero h1 {
         font-size: 42px;
+    }
+    
+    .contact {
+        padding: 50px 0;
     }
     
     .about-container,
